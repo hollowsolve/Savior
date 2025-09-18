@@ -21,7 +21,7 @@ savior watch
 
 ## What is Savior?
 
-Savior is a dead-simple backup tool that automatically saves your work (default 20 mins). When you inevitably break something, Savior has your back with instant restore points.
+Savior is a dead-simple backup tool that automatically saves your work. When you inevitably break something, Savior has your back with instant restore points.
 
 **Not a git replacement** - It's your safety net that backs up everything, including git history
 
