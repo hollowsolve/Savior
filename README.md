@@ -27,7 +27,7 @@ Savior is a dead-simple backup tool that automatically saves your work. When you
 
 ## Why Savior?
 
-- **When git is overkill** - Not every experiment needs version control
+- **git is overkill** - Not every experiment needs version control
 - **Before risky changes** - Auto-saves before you try that "clever" regex
 - **Learning projects** - Focus on coding, not commit messages
 - **Prototype safety** - Quick ideas deserve backups too
