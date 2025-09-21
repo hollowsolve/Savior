@@ -1,0 +1,122 @@
+{
+  "name": "savior-app",
+  "version": "1.0.0",
+  "description": "Automatic backup tool for developers - Desktop App",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "dev": "NODE_ENV=development webpack serve --config webpack.config.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
+    "electron": "electron .",
+    "electron-dev": "NODE_ENV=development electron .",
+    "dist": "npm run build && electron-builder",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:linux": "npm run build && electron-builder --linux",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "electron": "^38.1.2",
+    "electron-builder": "^26.0.12",
+    "html-webpack-plugin": "^5.6.4",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
+    "sharp": "^0.34.4",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.27.16",
+    "@headlessui/react": "^2.2.8",
+    "@heroicons/react": "^2.2.0",
+    "@types/chokidar": "^1.7.5",
+    "chokidar": "^4.0.3",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "events": "^3.3.0",
+    "framer-motion": "^12.23.15",
+    "path-browserify": "^1.0.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-hotkeys-hook": "^5.1.0",
+    "react-intersection-observer": "^9.16.0",
+    "react-window": "^2.1.1",
+    "tailwindcss": "^4.1.13",
+    "zustand": "^5.0.8"
+  },
+  "build": {
+    "appId": "com.savior.app",
+    "productName": "Savior",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "python",
+        "to": "python",
+        "filter": [
+          "**/*.py"
+        ]
+      },
+      {
+        "from": "../savior",
+        "to": "savior",
+        "filter": [
+          "**/*.py",
+          "!**/__pycache__",
+          "!**/*.pyc"
+        ]
+      },
+      {
+        "from": "./python-deps",
+        "to": "python-deps",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "asarUnpack": [
+      "python/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "assets/icon.png",
+      "target": "dmg",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png",
+      "category": "Development"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "savior"
+version = "1.0.0"
+description = "Automatic backups for developers who break things"
+readme = "README.md"
+authors = [{name = "Noah Edery", email = "noah@example.com"}]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Version Control",
+    "Topic :: System :: Archiving :: Backup",
+    "Operating System :: OS Independent",
+]
+keywords = ["backup", "version-control", "autosave", "development-tools"]
+requires-python = ">=3.7"
+dependencies = [
+    "click>=8.0",
+    "watchdog>=2.1.0",
+    "colorama>=0.4.4",
+    "python-dateutil>=2.8.2",
+    "psutil>=5.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/hollowsolve/Savior"
+Repository = "https://github.com/hollowsolve/Savior"
+Issues = "https://github.com/hollowsolve/Savior/issues"
+
+[project.scripts]
+savior = "savior.cli:cli"
+
+[tool.setuptools.packages.find]
+include = ["savior*"]
+exclude = ["tests*"]

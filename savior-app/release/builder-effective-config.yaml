@@ -1,0 +1,44 @@
+directories:
+  output: release
+  buildResources: build
+appId: com.savior.app
+productName: Savior
+files:
+  - filter:
+      - dist/**/*
+      - assets/**/*
+      - node_modules/**/*
+extraResources:
+  - from: python
+    to: python
+    filter:
+      - '**/*.py'
+  - from: ../savior
+    to: savior
+    filter:
+      - '**/*.py'
+      - '!**/__pycache__'
+      - '!**/*.pyc'
+  - from: ./python-deps
+    to: python-deps
+    filter:
+      - '**/*'
+asarUnpack:
+  - python/**/*
+mac:
+  category: public.app-category.developer-tools
+  icon: assets/icon.png
+  target: dmg
+  hardenedRuntime: false
+  gatekeeperAssess: false
+win:
+  target: nsis
+  icon: assets/icon.png
+linux:
+  target: AppImage
+  icon: assets/icon.png
+  category: Development
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+electronVersion: 38.1.2
